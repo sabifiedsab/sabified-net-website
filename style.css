@@ -2,7 +2,10 @@ body {
     background-color: rgb(16, 16, 16);
     color: white;
     font-family: "Sour Gummy", sans-serif;
+    margin-bottom: 2000px;
 }
+
+/* Navbar */
 
 .navbar {
     position: relative;
@@ -11,6 +14,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+
+    border-bottom: 2px rgb(48, 48, 48) solid;
 }
 
 .hamburger-icon {
@@ -54,5 +59,77 @@ body {
 .nav-links li a {
     text-decoration: none;
     color: white;
+    font-size: 1.25rem;
+}
+
+/* Links */
+
+.link-panel {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+    width: 80px;
+    height: 500px;
+
+    top: 50%;
+    left: 0;
+
+    transform: translateY(-50%);
+    background-color: #1a1a1a;
+    border: 2px solid #888;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
+
+    padding: 10px;
+    transition: width 0.3s ease, background-color 0.2s ease;
+    z-index: 1000;
+    overflow: hidden;
+    gap: 10px;
+}
+
+.link-panel.expanded {
+    width: 200px;
+}
+
+.link-panel button {
+    background: none;
+    font-size: 1.2rem;
+
+    border: none;
+    color: white;
+
+    cursor: pointer;
+    align-self: flex-end;
+    transition: transform 0.2s ease;
+}
+
+.link-panel.expanded button i {
+    transform: rotate(180deg);
+}
+
+.panel-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    padding-left: 5px;
+}
+
+.link-panel.expanded .panel-links {
+    opacity: 1;
+}
+
+.panel-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    gap: 10px;
+}
+
+.panel-link i {
     font-size: 1.25rem;
 }

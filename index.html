@@ -8,23 +8,44 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wdth,wght@0,100..125,100..900;1,100..125,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Sabified</title>
+    <title>Sabified</title>   
 </head>
 <body>
     <nav class="navbar">
         <div class="hamburger-icon">
-            <button onclick="hamburger_menu()">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-        </div>
+            <button><i class="fas fa-bars"></i></button>
+          </div>
+
         <div class="logo-container">
             <h1>Sabified</h1>
           </div>
+
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
     </nav>
+    <div class="link-panel collapsed" id="linkPanel">
+        <button id="togglePanel"><i class="fa-solid fa-arrow-right"></i></button>
+        <div class="panel-links">
+            <a href="#" class="panel-link">
+                <i class="fa-brands fa-github"></i><span>Github</span>
+            </a>
+            <a href="#" class="panel-link">
+                <i class="fa-brands fa-itch-io"></i><span>Itch.io</span>
+            </a>
+            <a href="#" class="panel-link">
+                <i class="fa-brands fa-discord"></i><span>Discord</span>
+            </a>
+        </div>
+    </div>    
 </body>
+<script>
+    document.getElementById('togglePanel').addEventListener('click', () => {
+        const panel = document.getElementById('linkPanel');
+        panel.classList.toggle('expanded');
+        panel.classList.toggle('collapsed');
+    });
+</script>
 </html>
