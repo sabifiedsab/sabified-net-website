@@ -1,0 +1,58 @@
+body {
+    background-color: rgb(16, 16, 16);
+    color: white;
+    font-family: "Sour Gummy", sans-serif;
+}
+
+.navbar {
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.hamburger-icon {
+    flex: 1;
+}
+
+.hamburger-icon button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-icon i {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.logo-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    pointer-events: none;
+}
+
+.logo-container h1 {
+    font-size: 52px;
+    margin: 0;
+}
+
+.nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2em;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.25rem;
+}
