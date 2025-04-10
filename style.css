@@ -1,3 +1,7 @@
+:root {
+    --panel-left: 200px;
+}
+
 body {
     background-color: rgb(16, 16, 16);
     color: white;
@@ -9,7 +13,7 @@ body {
 
 .navbar {
     position: relative;
-    height: 80px;
+    height: clamp(60px, 10vh, 80px);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -30,7 +34,7 @@ body {
 
 .hamburger-icon i {
     color: white;
-    font-size: 1.5rem;
+    font-size: clamp(0.5rem, 3vh, 2rem);
 }
 
 .logo-container {
@@ -42,15 +46,15 @@ body {
 }
 
 .logo-container h1 {
-    font-size: 52px;
-    margin: 0;
+    font-size: clamp(2.75rem, 3vw, 4rem);
+    text-align: left;
 }
 
 .nav-links {
     flex: 1;
     display: flex;
     justify-content: flex-end;
-    gap: 2em;
+    gap: clamp(10px, 2vw, 20px);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -59,7 +63,25 @@ body {
 .nav-links li a {
     text-decoration: none;
     color: white;
-    font-size: 1.25rem;
+    font-size: clamp(0.5rem, 3vw, 2rem);
+}
+
+/* Navbar Media Tags */
+@media only screen and (max-width: 800px) {
+    .logo-container {
+        position: absolute;
+        left: clamp(100px, 20vw, 300px);
+        pointer-events: auto;
+    }
+
+    .logo-container h1 {
+        font-size: clamp(1.5rem, 5vw, 2.5rem);
+        text-align: left;
+    }
+
+    .navbar {
+        justify-content: space-between;
+    }
 }
 
 /* Links */
@@ -69,8 +91,8 @@ body {
     display: flex;
     flex-direction: column;
 
-    width: 80px;
-    height: 500px;
+    width: clamp(40px, 10vw, 80px);
+    height: 200px;
 
     top: 50%;
     left: 0;
@@ -81,55 +103,101 @@ body {
     border-left: none;
     border-radius: 0 10px 10px 0;
 
-    padding: 10px;
+    padding: 1.5rem;
     transition: width 0.3s ease, background-color 0.2s ease;
-    z-index: 1000;
     overflow: hidden;
     gap: 10px;
 }
 
 .link-panel.expanded {
-    width: 200px;
+    width: var(--panel-left);
 }
 
-.link-panel button {
-    background: none;
-    font-size: 1.2rem;
+#panel-toggle {
+    position: fixed;
+    top: 50%;
+    left: 300px;
 
-    border: none;
+    transform: translateY(-50%);
+    z-index: 1001;
+
+    background: #1a1a1a;
+    border: 2px solid #888;
+    border-radius: 50%;
+    width: clamp(20px, 10vw, 40px);
+    height: clamp(20px, 10vw, 40px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     color: white;
-
     cursor: pointer;
-    align-self: flex-end;
-    transition: transform 0.2s ease;
+
+    transition: left 0.3s ease;
+}
+
+.link-panel.expanded + #panel-toggle {
+    left: var(--panel-left);
+}
+
+#panel-toggle i {
+    padding: 2px;
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .link-panel.expanded button i {
     transform: rotate(180deg);
 }
 
+.link-panel.expanded .panel-links {
+    align-items: start;
+}
+
+.link-panel.expanded .panel-links span {
+    display: block;
+}
+
+.link-panel.expanded .panel-link i {
+    font-size: 2rem;
+}
+
 .panel-links {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    opacity: 0;
-    transition: opacity 0.2s ease;
+    gap: clamp(5px, 2vw, 10px);
     padding-left: 5px;
+    align-items: center;
+    transition: 0.2s ease-in-out;
 }
 
-.link-panel.expanded .panel-links {
-    opacity: 1;
+.panel-links span {
+    display: none;
+}
+
+.panel-links button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
 }
 
 .panel-link {
     display: flex;
-    align-items: center;
     color: white;
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     gap: 10px;
+
+    transition: 200ms ease-in-out;
 }
 
 .panel-link i {
-    font-size: 1.25rem;
+    font-size: 3rem;
+    transition: 200ms ease-in-out;
+    align-items: start;
 }
+
