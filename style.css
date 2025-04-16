@@ -132,8 +132,6 @@ body {
     align-items: center;
     justify-content: start;
 
-    flex-grow: 1;
-
     text-align: center;
 
     text-decoration: none;
@@ -152,6 +150,8 @@ body {
     opacity: 0;
     transition: opacity 200ms ease-in-out;
     text-align: center;
+
+    flex-grow: 1;
 }
 
 .link-panel:hover .panel-link span {
