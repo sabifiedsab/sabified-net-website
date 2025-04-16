@@ -86,16 +86,18 @@ body {
 
 /* Links */
 
+
 .link-panel {
     position: fixed;
     display: flex;
     flex-direction: column;
 
+    justify-content: center;
+
     width: clamp(40px, 10vw, 80px);
     height: 200px;
 
     top: 50%;
-    left: 0;
 
     transform: translateY(-50%);
     background-color: #1a1a1a;
@@ -103,91 +105,42 @@ body {
     border-left: none;
     border-radius: 0 10px 10px 0;
 
-    padding: 1.5rem;
+    padding: 0.5rem;
     transition: width 0.3s ease, background-color 0.2s ease;
     overflow: hidden;
     gap: 10px;
 }
 
-.link-panel.expanded {
+.link-panel:hover {
     width: var(--panel-left);
-}
-
-#panel-toggle {
-    position: fixed;
-    top: 50%;
-    left: 300px;
-
-    transform: translateY(-50%);
-    z-index: 1001;
-
-    background: #1a1a1a;
-    border: 2px solid #888;
-    border-radius: 50%;
-    width: clamp(20px, 10vw, 40px);
-    height: clamp(20px, 10vw, 40px);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: white;
-    cursor: pointer;
-
-    transition: left 0.3s ease;
-}
-
-.link-panel.expanded + #panel-toggle {
-    left: var(--panel-left);
-}
-
-#panel-toggle i {
-    padding: 2px;
-    font-size: 1.5em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.link-panel.expanded button i {
-    transform: rotate(180deg);
-}
-
-.link-panel.expanded .panel-links {
-    align-items: start;
-}
-
-.link-panel.expanded .panel-links span {
-    display: block;
-}
-
-.link-panel.expanded .panel-link i {
-    font-size: 2rem;
 }
 
 .panel-links {
     display: flex;
     flex-direction: column;
+
+    justify-content: center;
+    align-items: center; /* vertically align */
+
     gap: clamp(5px, 2vw, 10px);
-    padding-left: 5px;
-    align-items: center;
     transition: 0.2s ease-in-out;
-}
-
-.panel-links span {
-    display: none;
-}
-
-.panel-links button {
-    border: none;
-    background-color: transparent;
-    color: white;
-    font-size: 2rem;
 }
 
 .panel-link {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+
+    flex-grow: 1;
+
+    text-align: center;
+
+    text-decoration: none;
     color: white;
+
+    width: 100%;
+
     text-decoration: none;
     font-size: 1.5rem;
     gap: 10px;
@@ -195,9 +148,26 @@ body {
     transition: 200ms ease-in-out;
 }
 
+.panel-link span {
+    opacity: 0;
+    transition: opacity 200ms ease-in-out;
+    text-align: center;
+}
+
+.link-panel:hover .panel-link span {
+    opacity: 1;
+}
+
 .panel-link i {
     font-size: 3rem;
     transition: 200ms ease-in-out;
-    align-items: start;
+    align-items: center;
+    justify-content: start;
+
+    width: 75px;
+}
+
+.link-panel:hover .panel-link i {
+    font-size: 2rem;
 }
 
