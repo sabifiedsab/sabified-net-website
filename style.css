@@ -6,7 +6,6 @@ body {
     background-color: rgb(16, 16, 16);
     color: white;
     font-family: "Sour Gummy", sans-serif;
-    margin-bottom: 2000px;
 }
 
 /* Navbar */
@@ -89,15 +88,15 @@ body {
 
 .link-panel {
     position: fixed;
-    display: flex;
-    flex-direction: column;
-
+    display: inline-flex;
+    flex-direction: row;
     justify-content: center;
-
+    align-items: center;
     width: clamp(40px, 10vw, 80px);
     height: 200px;
 
     top: 50%;
+    left: 0px;
 
     transform: translateY(-50%);
     background-color: #1a1a1a;
@@ -105,10 +104,9 @@ body {
     border-left: none;
     border-radius: 0 10px 10px 0;
 
-    padding: 0.5rem;
-    transition: width 0.3s ease, background-color 0.2s ease;
-    overflow: hidden;
-    gap: 10px;
+    padding: 1rem;
+    transition: all 0.3s ease;
+    gap: clamp(5px, 2vw, 10px);
 }
 
 .link-panel:hover {
@@ -118,16 +116,16 @@ body {
 .panel-links {
     display: flex;
     flex-direction: column;
-
-    justify-content: center;
-    align-items: center; /* vertically align */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    width: 100%;
 
     gap: clamp(5px, 2vw, 10px);
-    transition: 0.2s ease-in-out;
+    transition: all 0.3s ease;
 }
 
 .panel-link {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: start;
@@ -138,36 +136,41 @@ body {
     color: white;
 
     width: 100%;
+    font-size: 3rem;
 
-    text-decoration: none;
-    font-size: 1.5rem;
-    gap: 10px;
-
-    transition: 200ms ease-in-out;
+    transition: font-size 200ms ease-in-out;
 }
 
 .panel-link span {
     opacity: 0;
+    width: 0px;
     transition: opacity 200ms ease-in-out;
     text-align: center;
-
-    flex-grow: 1;
+    font-size: 50%;
 }
 
 .link-panel:hover .panel-link span {
     opacity: 1;
+    width: 50%;
 }
 
 .panel-link i {
-    font-size: 3rem;
-    transition: 200ms ease-in-out;
     align-items: center;
     justify-content: start;
-
     width: 75px;
+    
+    transition: color 200ms ease-in-out;
 }
 
-.link-panel:hover .panel-link i {
-    font-size: 2rem;
+.github-link:hover i {
+    color: #55759d;
+}
+
+.itch-io-link:hover i {
+    color: #fa5c3d;
+}
+
+.discord-link:hover i {
+    color: #5865F2;
 }
 
